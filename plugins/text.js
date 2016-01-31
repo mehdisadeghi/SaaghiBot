@@ -1,5 +1,5 @@
 var MESSAGE_TYPES = require('telegram-bot-node').MESSAGE_TYPES;
-var request = require('superagent');
+//var request = require('superagent');
 // Promises lib, you can use bluebirs, vow or other.
 var vow = require('vow');
 var khayyam = require('../khayyam.js');

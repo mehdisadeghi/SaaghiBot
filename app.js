@@ -20,6 +20,7 @@ myBot.on('message', function (msg) {
 
 // Listen to `inline_query' event for polling
 myBot.on('inline_query', function (query) {
+	//console.log('inline_query is trigerred');
 	khayyam.handle_query(myBot, query);
 });
 

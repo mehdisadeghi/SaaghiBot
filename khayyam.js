@@ -33,7 +33,7 @@ var count = Object.keys(khayyam.RUBAIYAT).length;
         return bot;
     },
     process_query: process_query,
-    getRandomInt: getRandomInt
+    getRandomInt: getRandomInt,
 };
 
 // Returns a random integer between min (included) and max (excluded)
