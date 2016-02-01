@@ -450,9 +450,9 @@
       "resolved": "https://registry.npmjs.org/telegram-bot-node/-/telegram-bot-node-0.2.6.tgz",
       "dependencies": {
         "node-telegram-bot-api": {
-          "version": "0.11.1",
-          "from": "node-telegram-bot-api@>=0.11.0 <0.12.0",
-          "resolved": "https://registry.npmjs.org/node-telegram-bot-api/-/node-telegram-bot-api-0.11.1.tgz"
+          "version": "0.20.0",
+          "from": "node-telegram-bot-api@>=0.20.0 <0.22.0",
+          "resolved": "https://registry.npmjs.org/node-telegram-bot-api/-/node-telegram-bot-api-0.20.0.tgz"
         }
       }
     },
