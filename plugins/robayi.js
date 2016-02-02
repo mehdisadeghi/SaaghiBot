@@ -1,5 +1,4 @@
 var MESSAGE_TYPES = require('telegram-bot-node').MESSAGE_TYPES;
-//var request = require('superagent');
 // Promises lib, you can use bluebirs, vow or other.
 var vow = require('vow');
 var khayyam = require('../khayyam.js');
@@ -9,15 +8,16 @@ module.exports = {
   type: MESSAGE_TYPES.COMMAND,
   weight: 1,
   test: function (info) {
-    // Check that the command is `robayi`.
+    // Check that the command is `_`.
     return info.data.command === '_';
   },
   handler: function (info, bot) {
     "use strict";
-    console.log('Got something: ' + info.message.text + ' from user: ' + info.message.from.username);
+    // console.log('Robayi.js got something: ' +\
+    // info.message.text + ' from user: ' + info.message.from.username);
     // Command `/weather London` has info.data.params = `London`
     var deferred = vow.defer();
-    var keywords = info.message.text;
+    var keywords = info.data.params;
     let robayis = khayyam.process_query({'query': keywords});
     let result = "";
     if (robayis && robayis.length > 0){
