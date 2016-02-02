@@ -24,9 +24,9 @@ module.exports = {
     result += "برای دیدن پیام آغازین ساقی /start را وارد کنید.\n\n";
     result += "دیگر اینکه ساقی یک برنامه‌ی اوپن سورس است. کد آنرا می‌توانید روی گیت‌هاب ببینید. \
 اگر به مشکلی برخورد کردید یا ایده‌ای داشتید لطفا آنرا\
-[ روی گیت‌هاب](mehdix.ir/projects/saaghibot/) گزارش کنید";
+[ روی گیت‌هاب](https://github.com/mehdisadeghi/SaaghiBot) گزارش کنید";
     result += " یا \
-[در وبسایت ساقی](mehdix.ir/projects/saaghibot/) کامنت بگذارید.";
+[در وبسایت ساقی](mehdix.ir/projects/SaaghiBot) کامنت بگذارید.";
 
     result += " در غیر اینصورت به ساقی ایمیل بزنید: saaghibot@mehdix.ir.";
     //result += " خوش باشید.\nامضا: ساقی";

@@ -70,7 +70,7 @@ function process_query(query){
             'title': title,
             'message_text': robayiText,
             'parse_mode': 'Markdown',
-            'url': 'http://mehdix.ir/projects/SaaghiBot/',
+            'url': 'http://mehdix.ir/projects/SaaghiBot',
             'hide_url': true,
             'description': robayiText});
     }
@@ -99,7 +99,7 @@ function process_query(query){
                     'title': title,
                     'message_text': robayiText,
                     'parse_mode': 'Markdown',
-                    'url': 'http://mehdix.ir/projects/SaaghiBot/',
+                    'url': 'http://mehdix.ir/projects/SaaghiBot',
                     'hide_url': true,
                     'description': robayiText});
             }
