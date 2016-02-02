@@ -20,14 +20,14 @@ module.exports = {
 (مِنشِن) کردن او در گروه‌هاست. به محض اینکه ساقی را یاد کنید،";
     result += " او یک رباعی اتفاقی نمایش می‌دهد. اگر کلماتی پس از\
 نامش بنویسید، او یک رباعی با آن کلمات پیشنهاد می‌کند. مثال:";
-    result += "\n@SaaghiBot زلف\n\n"
-    result += "ساقی یک برنامه‌ی اوپن سورس است. کد آنرا می‌توانید روی گیت‌هاب ببینید.\
+    result += "\n@SaaghiBot زلف\n\n";
+    result += "ساقی یک برنامه‌ی اوپن سورس است. کد آنرا می‌توانید روی گیت‌هاب ببینید. \
 اگر به مشکلی برخورد کردید یا ایده‌ای داشتید لطفا آنرا\
-[روی گیت‌هاب](mehdix.ir/projects/saaghibot/) گزارش کنید."
-    result += " اگر روش بالا برایتان مناسب نیست لطفا \
-[در وبسایت ساقی](mehdix.ir/projects/saaghibot/) کامنت بگذارید."
+[روی گیت‌هاب](mehdix.ir/projects/saaghibot/) گزارش کنید";
+    result += " یا \
+[در وبسایت ساقی](mehdix.ir/projects/saaghibot/) کامنت بگذارید.";
 
-    result += " در غیر اینصورت به ساقی ایمیل بزنید: saaghibot@mehdix.ir."
+    result += " در غیر اینصورت به ساقی ایمیل بزنید: saaghibot@mehdix.ir.";
     //result += " خوش باشید.\nامضا: ساقی";
     bot.sendMessage(result, {'parse_mode': 'Markdown',
                              'disable_web_page_preview': true})
