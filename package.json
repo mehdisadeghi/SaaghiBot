@@ -24,8 +24,7 @@
   },
   "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
   "dependencies": {
-    "telegram-bot-node": "^0.2.6",
-    "node-telegram-bot-api": "^0.20.0",
+    "telegram-bot-node": "git@github.com:mehdisadeghi/telegram-bot-node.git#feature-inline-query",
     "yamljs": "^0.2.4"
   }
 }
