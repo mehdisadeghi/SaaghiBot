@@ -38,7 +38,8 @@ const notFoundMessage = `گفتند یافت می‌نشود جسته‌ایم �
 گفت آن کو *یافت می‌نشود* آنم آرزوست
 .`
 
-bot.onText(/^[^\/]\S*$/i, (msg, match) => {
+bot.onText(/^[^\/][\S\s]*$/i, (msg, match) => {
+
     const chatId = msg.chat.id
 
     if (process.env.UA) {
