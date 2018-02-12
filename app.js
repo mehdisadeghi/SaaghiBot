@@ -6,6 +6,7 @@
 const TelegramBot = require('node-telegram-bot-api')
 const khayyam = require('./khayyam.js')
 const path = require('path')
+const ua = require('universal-analytics')
 
 const token = process.env.TELEGRAM_BOT_TOKEN
 if (!token) {
@@ -37,19 +38,34 @@ const notFoundMessage = `گفتند یافت می‌نشود جسته‌ایم �
 گفت آن کو *یافت می‌نشود* آنم آرزوست
 .`
 
-bot.on('text', (msg) => {
+bot.onText(/^[^\/]\S*$/i, (msg, match) => {
     const chatId = msg.chat.id
+
+    if (process.env.UA) {
+        let visitor = ua(process.env.UA, msg.from.id+'', {strictCidFormat: false})
+        visitor.event('Telegram', 'Chat', msg.text).send()
+    }
 
     let robayis = khayyam.process_query(msg.text)
     if (!robayis || robayis.length == 0) {
-        bot.sendMessage(chatId, notFoundMessage, {'parse_mode': 'Markdown'})
+        bot.sendMessage(chatId, notFoundMessage, {'parse_mode': 'Markdown'}).catch( error => {
+            console.log(JSON.stringify(error))
+        })
     } else {
         let index = khayyam.getRandomInt(0, robayis.length)
-        bot.sendMessage(chatId, robayis[index].message_text)
+        bot.sendMessage(chatId, robayis[index].message_text).catch( error => {
+          console.log(JSON.stringify(error))
+        })
     }
 })
 
 bot.on('inline_query', (query) => {
+
+    if (process.env.UA) {
+        let visitor = ua(process.env.UA, query.from.id, {strictCidFormat: false})
+        visitor.event('Telegram', 'Query', query.query).send()
+    }
+
     // Telegram allows up to 50 results.
     let resp = khayyam.process_query(query.query).slice(0, 50)
     bot.answerInlineQuery(query.id, resp).catch( error => {
@@ -62,10 +78,17 @@ bot.onText(/\/help/, (msg, match) => {
     // 'match' is the result of executing the regexp above on the text content
     // of the message
 
+    if (process.env.UA) {
+        let visitor = ua(process.env.UA, msg.from.id, {strictCidFormat: false})
+        visitor.event('Telegram', 'Help').send()
+    }
+
     const chatId = msg.chat.id
 
     // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, helpMessage, {'parse_mode': 'Markdown'})
+    bot.sendMessage(chatId, helpMessage, {'parse_mode': 'Markdown'}).catch( error => {
+        console.log(JSON.stringify(error))
+    })
 })
 
 bot.onText(/\/start/, (msg, match) => {
@@ -73,8 +96,15 @@ bot.onText(/\/start/, (msg, match) => {
     // 'match' is the result of executing the regexp above on the text content
     // of the message
 
+    if (process.env.UA) {
+        let visitor = ua(process.env.UA, msg.from.id, {strictCidFormat: false})
+        visitor.event('Telegram', 'Start').send()
+    }
+
     const chatId = msg.chat.id
 
     // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, helpMessage, {'parse_mode': 'Markdown'})
+    bot.sendMessage(chatId, helpMessage, {'parse_mode': 'Markdown'}).catch( error => {
+        console.log(JSON.stringify(error))
+    })
 })
