@@ -3,13 +3,13 @@
  * Copyright: (c) 2016 Mehdi Sadeghi
  * License: MIT
  */
-var yaml = require('yamljs');
+const yaml = require('yamljs');
  
 // Load yaml file using YAML.load 
-var khayyam = yaml.load('omarkhayyam_list.yaml');
+const data = yaml.load('omarkhayyam_list.yaml');
 
 // Number of quatrains
-var count = Object.keys(khayyam.RUBAIYAT).length;
+const count = Object.keys(data.RUBAIYAT).length;
 
 /**
  * @class
@@ -19,7 +19,6 @@ var count = Object.keys(khayyam.RUBAIYAT).length;
  */
  module.exports = {
     handle_query: function (bot, query) {
-        "use strict";
         let results = process_query(query);
 
         // Zero cache time if no query is provided, otherwise default value (300)
@@ -44,7 +43,6 @@ function getRandomInt(min, max) {
 
 // Convert an Arabic numeral into its hindu-arabic representation.
 function convertToHinduArabic(number) {
-    "use strict";
     number = number.toString();
     var map = {'0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴', '5': '۵', '6': '۶', '7': '۷', '8': '۸', '9': '۹'};
     let result = [];
@@ -55,15 +53,14 @@ function convertToHinduArabic(number) {
 }
 
 
-function process_query(query){
-    "use strict";
+function process_query(query) {
     let results = [];
     // If no query is provided show a randome quatrain
-    if (!query.query) {
+    if (!query) {
         let randomInt = getRandomInt(1, count);
-        let robayiDict = khayyam.RUBAIYAT[randomInt];
+        let robayiDict = data.RUBAIYAT[randomInt];
         let title = 'رباعی شماره ' + convertToHinduArabic(randomInt);
-        let robayiText = robayiDict.A + '\n' + robayiDict.B + '\n' + robayiDict.C + '\n' + robayiDict.D;
+        let robayiText = robayiDict.A + '\n' + robayiDict.B + '\n' + robayiDict.C + '\n' + robayiDict.D + '\n' + '.';
         results.push(
             {'type': 'article',
             'id': randomInt.toString(),
@@ -75,16 +72,16 @@ function process_query(query){
             'description': robayiText});
     }
     else {
-        let searchTerms = query.query.split(' ');
+        let searchTerms = query.split(' ');
         // Search quatrains for the given keywords
-        for (let k in khayyam.RUBAIYAT) {
+        for (let k in data.RUBAIYAT) {
             // Extract lines
-            let robayi = khayyam.RUBAIYAT[k];
+            let robayi = data.RUBAIYAT[k];
             let robayiText = robayi.A + '\n' + robayi.B + '\n' + robayi.C + '\n' + robayi.D;
 
             // If any robayi matches the query, add it to the results
             let match = true;
-            searchTerms.forEach (function (element, index, array){
+            searchTerms.forEach (function (element, index, array) {
                 //console.log('Inside foreach: ' + match + ' ' + element + ' ' + index + ' ' + array + ' ' + robayiText);
                 // Regexes are hard, therefore here is a dumb way to findout all the matches
                 match = match && robayiText.match(element);
@@ -97,7 +94,7 @@ function process_query(query){
                     {'type': 'article',
                     'id': robayi.ID.toString(),
                     'title': title,
-                    'message_text': robayiText,
+                    'message_text': robayiText + '\n' + '.',
                     'parse_mode': 'Markdown',
                     'url': 'http://mehdix.ir/projects/SaaghiBot',
                     'hide_url': true,

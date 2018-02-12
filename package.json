@@ -4,6 +4,7 @@
   "description": "Yet another telegram bot. This one is a poet.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +25,7 @@
   },
   "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
   "dependencies": {
-    "telegram-bot-node": "git@github.com:mehdisadeghi/telegram-bot-node.git#feature-inline-query",
-    "yamljs": "^0.2.4"
+    "node-telegram-bot-api": "^0.30.0",
+    "yamljs": "^0.3.0"
   }
 }

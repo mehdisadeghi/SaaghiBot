@@ -9,3 +9,13 @@ It returns random quatrains out of 106 quatrains which are listed in `omarkkhayy
 
 ## How to use
 Try mentioning @SaaghiBot in Telegram chats, with or without search terms.
+
+## Development
+Obtain a bot token from [BotFather](https://t.me/botfather) and make sure to enable inline queries for your bot using `/setinline`.
+Then run the following:
+
+    yarn install
+    TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> yarn start
+
+## License
+MIT
