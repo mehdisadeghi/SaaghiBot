@@ -1,4 +1,4 @@
-# SaaghiBot
+# SaaghiBot [![npm version](https://badge.fury.io/js/saaghibot.svg)](https://badge.fury.io/js/saaghibot)
 Yet another telegram bot. This one is a poet.
 
 ## What is this?
@@ -11,7 +11,7 @@ It returns random quatrains out of 106 quatrains which are listed in `omarkkhayy
 Try mentioning @SaaghiBot in Telegram chats, with or without search terms.
 
 ## How to run a copy
-Install it from NPM:
+Install it from npm:
 
     yarn install saaghibot
     TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> saaghibot
