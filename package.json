@@ -1,16 +1,11 @@
 {
   "name": "saaghibot",
   "version": "1.0.0",
+  "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
   "description": "Yet another telegram bot. This one is a poet.",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mehdisadeghi/SaaghiBot.git"
-  },
+  "author": "Mehdi Sadeghi",
+  "license": "MIT",
   "keywords": [
     "Telegram",
     "Bot",
@@ -18,12 +13,20 @@
     "Robayi",
     "Saaghi"
   ],
-  "author": "Mehdi Sadeghi",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehdisadeghi/SaaghiBot.git"
+  },
   "bugs": {
     "url": "https://github.com/mehdisadeghi/SaaghiBot/issues"
   },
-  "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "saaghibot": "./app.js"
+  },
   "dependencies": {
     "khayyamjs": "^1.0.0",
     "node-telegram-bot-api": "^0.30.0",
