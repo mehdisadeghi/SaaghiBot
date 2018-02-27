@@ -1,6 +1,6 @@
 {
   "name": "saaghibot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
   "description": "Yet another telegram bot. This one is a poet.",
   "main": "app.js",

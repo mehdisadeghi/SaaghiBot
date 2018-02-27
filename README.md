@@ -11,17 +11,20 @@ It returns random quatrains out of 106 quatrains which are listed in `omarkkhayy
 Try mentioning @SaaghiBot in Telegram chats, with or without search terms.
 
 ## How to run a copy
-Install it from npm:
+First make sure you have a not so old version of nodejs with ES6 support installed. Then from npm:
 
-    yarn install saaghibot
-    TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> saaghibot
+    # yarn global add saaghibot // or alternatively npm i -g saaghibot
+
+Then run the bot using your bot token:
+
+    $ TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> saaghibot
 
 ## Development
 Obtain a bot token from [BotFather](https://t.me/botfather) and make sure to enable inline queries for your bot using `/setinline`.
 Then run the following:
 
-    yarn install
-    TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> yarn start
+    $ yarn install
+    $ TELEGRAM_BOT_TOKEN=<bot_token_obtained_from_botfather> yarn start
 
 ## License
 MIT
