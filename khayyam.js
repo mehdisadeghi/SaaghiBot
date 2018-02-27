@@ -3,14 +3,8 @@
  * Copyright: (c) 2016 Mehdi Sadeghi
  * License: MIT
  */
-const yaml = require('yamljs');
+const data = require('khayyamjs');
  
-// Load yaml file using YAML.load 
-const data = yaml.load('omarkhayyam_list.yaml');
-
-// Number of quatrains
-const count = Object.keys(data.RUBAIYAT).length;
-
 /**
  * @class
  * @name DocumentAnalyzer
@@ -54,13 +48,14 @@ function convertToHinduArabic(number) {
 
 
 function process_query(query) {
+
     let results = [];
     // If no query is provided show a randome quatrain
     if (!query) {
-        let randomInt = getRandomInt(1, count);
-        let robayiDict = data.RUBAIYAT[randomInt];
+        let randomInt = getRandomInt(1, data.length);
+        let robayi = data[randomInt];
         let title = 'رباعی شماره ' + convertToHinduArabic(randomInt);
-        let robayiText = robayiDict.A + '\n' + robayiDict.B + '\n' + robayiDict.C + '\n' + robayiDict.D + '\n' + '.';
+        let robayiText = robayi[0] + '\n' + robayi[1] + '\n' + robayi[2] + '\n' + robayi[3] + '\n' + '.';
         results.push(
             {'type': 'article',
             'id': randomInt.toString(),
@@ -74,10 +69,10 @@ function process_query(query) {
     else {
         let searchTerms = query.split(' ');
         // Search quatrains for the given keywords
-        for (let k in data.RUBAIYAT) {
+        for (let k in data) {
             // Extract lines
-            let robayi = data.RUBAIYAT[k];
-            let robayiText = robayi.A + '\n' + robayi.B + '\n' + robayi.C + '\n' + robayi.D;
+            let robayi = data[k];
+            let robayiText = robayi[0] + '\n' + robayi[1] + '\n' + robayi[2] + '\n' + robayi[3];
 
             // If any robayi matches the query, add it to the results
             let match = true;
@@ -89,10 +84,10 @@ function process_query(query) {
             //console.log('match is: ' + match);
             // If match is still true add the line to the results
             if (match) {
-                let title = 'رباعی شماره ' + convertToHinduArabic(robayi.ID);
+                let title = 'رباعی شماره ' + convertToHinduArabic(k+1);
                 results.push(
                     {'type': 'article',
-                    'id': robayi.ID.toString(),
+                    'id': (k+1).toString(),
                     'title': title,
                     'message_text': robayiText + '\n' + '.',
                     'parse_mode': 'Markdown',

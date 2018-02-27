@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/mehdisadeghi/SaaghiBot#readme",
   "dependencies": {
+    "khayyamjs": "^1.0.0",
     "node-telegram-bot-api": "^0.30.0",
-    "universal-analytics": "^0.4.16",
-    "yamljs": "^0.3.0"
+    "universal-analytics": "^0.4.16"
   }
 }
