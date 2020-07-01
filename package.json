@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "khayyamjs": "^1.0.0",
-    "node-telegram-bot-api": "^0.40.0",
+    "node-telegram-bot-api": "^0.50.0",
     "universal-analytics": "^0.4.16"
   }
 }
